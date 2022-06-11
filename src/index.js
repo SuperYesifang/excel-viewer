@@ -1,7 +1,7 @@
 /* eslint-disable */
-import "./excel/xspreadsheet.css";
-import "./excel/xspreadsheet.js";
-import * as XLSX from "./excel/xlsx.full.min.js";
+import "../dist/excel/xspreadsheet.css";
+import "../dist/excel/xspreadsheet.js";
+import * as XLSX from "../dist/excel/xlsx.full.min.js";
 import ExcelViewer from "./ExcelViewer.js";
 
 window.XLSX = XLSX;
