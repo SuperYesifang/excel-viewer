@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="excel/xspreadsheet.css">
+    <script src="excel/xspreadsheet.js"></script>
+    <script src="excel/xlsx.full.min.js"></script>
+    <title>EXCEL查看器</title>
+</head>
+
+<body>
+    <div id="excel-view"></div>
+</body>
+<script src="excel-viewer.js"></script>
+<script>
+let url = window.location.search.match(/(?<=file=)[^&]+(?=&|$)/);
+let theme = window.location.search.match(/(?<=theme=)[^&]+(?=&|$)/);
+let themeBtn = window.location.search.match(/(?<=themeBtn=)[^&]+(?=&|$)/);
+let lang = window.location.search.match(/(?<=lang=)[^&]+(?=&|$)/);
+
+if (url && url.length) {
+    theme = (theme && theme.length) ? { theme: theme[0] } : {};
+    themeBtn = (themeBtn && themeBtn.length) ? { themeBtn: !!~~themeBtn[0] } : {};
+    lang = (lang && lang.length) ? { lang: lang[0] } : {};
+    new ExcelViewer("#excel-view", url[0], {
+        ...theme,
+        ...themeBtn,
+        ...lang
+    });
+}
+</script>
+</html>

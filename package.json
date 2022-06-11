@@ -1,0 +1,43 @@
+{
+    "name": "excel-viewer",
+    "version": "0.0.1",
+    "description": "这是一个excel文件查看器，支持xls、xlsx、csv格式，你可以用它在指定DOM渲染excel，也可以将它内嵌在iframe中。This is an excel file viewer that supports xls, xlsx, csv and ods. You can use it to render excel in the specified DOM or embedded it in the iframe.",
+    "author": "Yesifang",
+    "license": "MIT",
+    "private": false,
+    "main": "./src/index.js",
+    "homepage": "https://yesifang.com",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:SuperYesifang/excel-viewer.git"
+    },
+    "keywords": [
+        "viewer",
+        "excel",
+        "xls",
+        "xlsx",
+        "csv",
+        "ods"
+    ],
+    "scripts": {
+        "serve": "npx webpack-dev-server",
+        "build": "npx webpack"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.17.9",
+        "@babel/preset-env": "^7.16.11",
+        "babel-loader": "^8.2.5",
+        "html-webpack-plugin": "^5.5.0",
+        "webpack": "^5.72.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.8.1"
+    },
+    "dependencies": {
+        "core-js": "^2.6.12"
+    }
+}
