@@ -15,7 +15,7 @@ ExcelViewer.prototype.defaultOpts = {
 
 ExcelViewer.prototype.init = async function () {
 	if (typeof this.url == "string") {
-		this.url = decodeURIComponent(url);
+		this.url = decodeURIComponent(this.url);
 		let names = this.url.match(/(?<=\/)[^/]+(?=\.[^.]+$)/);
 		if (names && names.length) this.name = names[0];
 		if (/^blob/.test(this.url)) {
