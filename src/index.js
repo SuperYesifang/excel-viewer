@@ -1,3 +1,4 @@
+/* eslint-disable */
 import "./excel/xspreadsheet.css";
 import "./excel/xspreadsheet.js";
 import * as XLSX from "./excel/xlsx.full.min.js";

@@ -1,6 +1,7 @@
 function ExcelViewer(el, url, opts = {}) {
 	this.el = el;
-	this.url = decodeURIComponent(url);
+	this.url = url;
+	this.ext = "";
 	this.buffer = null;
 	this.opts = Object.assign(this.defaultOpts, opts);
 	this.init();
@@ -14,6 +15,7 @@ ExcelViewer.prototype.defaultOpts = {
 
 ExcelViewer.prototype.init = async function () {
 	if (typeof this.url == "string") {
+		this.url = decodeURIComponent(url);
 		let names = this.url.match(/(?<=\/)[^/]+(?=\.[^.]+$)/);
 		if (names && names.length) this.name = names[0];
 		if (/^blob/.test(this.url)) {
