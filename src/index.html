@@ -12,6 +12,7 @@
 
 <body>
     <div id="excel-view"></div>
+    <!-- <div id="excel-view2"></div> -->
 </body>
 <script src="excel-viewer.js"></script>
 <script>
@@ -29,6 +30,11 @@ if (url && url.length) {
         ...themeBtn,
         ...lang
     });
+    // new ExcelViewer("#excel-view2", url[0], {
+    //     ...theme,
+    //     ...themeBtn,
+    //     ...lang
+    // });
 }
 </script>
 </html>

@@ -36,10 +36,7 @@ ExcelViewer.prototype.init = async function () {
 	}
 	document.documentElement.setAttribute("data-excel-viewer-theme", this.opts.theme);
 	document.documentElement.setAttribute("data-excel-viewer-lang", this.opts.lang);
-	if (this.opts.themeBtn) {
-		if (window._excel_viewer_theme_btn && !window._excel_viewer_theme_btn.el) window._excel_viewer_theme_btn = { el: window._excel_viewer_theme_btn };
-		else window._excel_viewer_theme_btn = true;
-	}
+	if (this.opts.themeBtn) window._excel_viewer_theme_btn = true;
 	this.render();
 }
 
@@ -52,11 +49,8 @@ ExcelViewer.prototype.render = function () {
         row: { len: maxLength + 50, height: 30 },
         style: { align: 'center' }
 	}).loadData(sheets);
-	if (this.opts.themeBtn && window._excel_viewer_theme_btn) {
-		let el;
-		if (window._excel_viewer_theme_btn.el) el = window._excel_viewer_theme_btn.el;
-		else el = window._excel_viewer_theme_btn;
-		el.addEventListener("click", () => {
+	if (this.opts.themeBtn) {
+		window._excel_viewer_theme_btn.addEventListener("click", () => {
 			let data = this.spreadsheet_s.getData();
 			this.spreadsheet_s = x_spreadsheet(this.el, {
 				row: {
