@@ -11,51 +11,53 @@
   <a href="https://nodei.co/npm/excel-viewer/"><img src="https://nodei.co/npm/excel-viewer.png?downloads=true&downloadRank=true&stars=true"></a>
 </div>
 
-[中文文档](./docs/zh_cn.md)
+[English Document](../README.md)
 
-## Introduction
+## 前言
 
-This is an excel file viewer developed using [xlsx](https://github.com/SheetJS/sheetjs) and [xspreadsheet](https://github.com/myliang/spreadsheet).
+这是一个Excel文件预览器，使用 [xlsx](https://github.com/SheetJS/sheetjs) 和 [xspreadsheet](https://github.com/myliang/spreadsheet)开发.
 
-Added light and dark theme mode switching, new support for Chinese, new support for iframe, so that you can use it right out of the box.
+增加暗色主题模式，添加了明暗主题模式切换功能，增加了中文支持，支持iframe内嵌使用，实现开箱即用。
 
 ![image-readme-theme-light](./src/assets/image-readme-theme-light.png)
 
 ![image-readme-theme-dark](./src/assets/image-readme-theme-dark.png)
 
-## Usage
+## 使用
 
 `new ExcelViewer(el:string|HTMLElement, source:string|Buffer, options)`
 
-+ el：excel view container.
-  + `string`：excel view element selector string.
-  + `HTMLElement`：html element
-+ source：excel source url or data.
-  + `string`：excel file source url.
-  + `Buffer`：excel file source buffer data.
-+ options：more functions.
++ el：用于预览Excel的容器元素。
+  + `string`：容器选择器。
+  + `HTMLElement`：容器DOM元素。
++ source：Excel文件源的buffer数据或是Excel文件的URL。
+  + `string`：Excel文件的URL。
+  + `Buffer`：Excel文件源的buffer数据。
++ options：更多拓展功能。
 
 ```js
 new ExcelViewer("#excel-view", "http://example.com/test.xls", {
-    theme: "dark",
-    lang: "zh_cn"
+	theme: "dark",
+	lang: "zh_cn"
 });
 ```
 
-### options
+### 配置
 
-| option       | type                    | description                                       |
-| ------------ | ----------------------- | ------------------------------------------------- |
-| `theme`    | `"light"`、`"dark"` | excel theme mode. default `"light"`             |
-| `themeBtn` | `boolean`             | enable theme mode switch button. default `true` |
-| `lang`     | `"en"`、`"zh_cn"`   | viewer language. default `"en"`                 |
 
-+ supports language
+| 选项       | 类型                | 含义                                     |
+| ------------ | --------------------- | ------------------------------------------ |
+| `theme`    | `"light"`、`"dark"` | Excel预览器的主题模式。默认为：`"light"` |
+| `themeBtn` | `boolean`           | 启用主题模式切换按钮。默认为：`true`     |
+| `lang`     | `"en"`、`"zh_cn"`   | 预览器的语言。默认为：`"en"`             |
 
-| lang        | description                    |
-| ----------- | ------------------------------ |
-| `"en"`    | English                        |
-| `"zh_cn"` | 简体中文（Simplified Chinese） |
++ 支持语言
+
+
+| lang      | 含义     |
+| ----------- | ---------- |
+| `"en"`    | 英语     |
+| `"zh_cn"` | 简体中文 |
 
 ### iframe
 
@@ -63,14 +65,15 @@ new ExcelViewer("#excel-view", "http://example.com/test.xls", {
 <iframe src="https://unpkg.com/excel-viewer@1.0.0/dist/index.html?file=http://example.com/test.xls"></iframe>
 ```
 
-+ query params
++ 查询参数
 
-| params        | description                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
-| `file`      | excel file url.                                                              |
-| `theme`?    | excel viewer theme mode. supports:`light`、`dark`                        |
-| `themeBtn`? | enable viewer theme switch button. supports:`1 ` (true)、`0 ` (disabled) |
-| `lang`?     | viewer language. supports:`en`、`zh_cn`                                  |
+
+| 参数        | 含义                                                       |
+| ------------- | ------------------------------------------------------------ |
+| `file`      | Excel文件的URL。                                           |
+| `theme`?    | Excel预览器的主题模式。可选值：`light`、`dark`             |
+| `themeBtn`? | 启用主题模式切换按钮。可选值：`1 ` (true)、`0 ` (disabled) |
+| `lang`?     | 预览器的语言。可选值：`en`、`zh_cn`                        |
 
 ### CDN
 
@@ -98,9 +101,9 @@ new ExcelViewer("#excel-view", "http://example.com/test.xls", {
 });
 ```
 
-## Authorization
+## 授权认证
 
-If your excel file needs authorization, you can help you through this.
+如果你的Excel文件需要授权认证，以下内容可以帮助你。
 
 ### iframe
 
@@ -109,14 +112,14 @@ If your excel file needs authorization, you can help you through this.
 
 <script>
 let iframe = document.getElementById("excel-viewer");
-// example with axios
+// 以 axios 为例
 axios({
     url: "http://example.com/test.xls",
     method: "GET",
-    headers: { "Authorization": "Your Authorization Token" }, // authorization token
+    headers: { "Authorization": "Your Authorization Token" }, // 授权认证token
     responseType: "blob"
 }).then(blob => {
-    let localUrl = URL.createObjectURL(blob) + ".xls"; // add excel file suffix
+    let localUrl = URL.createObjectURL(blob) + ".xls"; // 添加Excel类型后缀
     iframe.src = "https://unpkg.com/excel-viewer@1.0.0/dist/index.html?file=" + localUrl;
 })
 </script>
@@ -128,11 +131,11 @@ axios({
 <div id="excel-view"></div>
 
 <script>
-// example with axios
+// 以 axios 为例
 axios({
     url: "http://example.com/test.xls",
     method: "GET",
-    headers: { "Authorization": "Your Authorization Token" }, // authorization token
+    headers: { "Authorization": "Your Authorization Token" }, // 授权认证token
     responseType: "arraybuffer"
 }).then(res => {
     new ExcelViewer("#excel-view", res.data);
@@ -150,7 +153,7 @@ axios({
 import axios from "axios";
 import ExcelViewer from "excel-viewer";
 
-// example with vuejs and axios
+// 以 vuejs 和 axios 为例子
 export default {
     mounted() {
         let container = this.$refs["excel-view"];
@@ -158,7 +161,7 @@ export default {
         axios({
             url: "http://example.com/test.xls",
             method: "GET",
-            headers: { "Authorization": "Your Authorization Token" }, // authorization token
+            headers: { "Authorization": "Your Authorization Token" }, // 授权认证token
             responseType: "arraybuffer"
         }).then(res => {
             new ExcelViewer(container, res.data);
