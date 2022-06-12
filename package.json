@@ -1,6 +1,6 @@
 {
     "name": "excel-viewer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "这是一个excel文件查看器，支持xls、xlsx、csv格式，你可以用它在指定DOM渲染excel，也可以将它内嵌在iframe中。This is an excel file viewer that supports xls, xlsx, csv and ods. You can use it to render excel in the specified DOM or embedded it in the iframe.",
     "author": "Yesifang",
     "license": "MIT",

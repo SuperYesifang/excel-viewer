@@ -37,7 +37,7 @@ ExcelViewer.prototype.init = async function () {
 	document.documentElement.setAttribute("data-excel-viewer-theme", this.opts.theme);
 	document.documentElement.setAttribute("data-excel-viewer-lang", this.opts.lang);
 	if (this.opts.themeBtn) {
-		if (window._excel_viewer_theme_btn.el) window._excel_viewer_theme_btn = { el: window._excel_viewer_theme_btn };
+		if (window._excel_viewer_theme_btn && window._excel_viewer_theme_btn.el) window._excel_viewer_theme_btn = { el: window._excel_viewer_theme_btn };
 		else window._excel_viewer_theme_btn = true;
 	}
 	this.render();
