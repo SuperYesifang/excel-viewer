@@ -52,8 +52,11 @@ ExcelViewer.prototype.render = function () {
         row: { len: maxLength + 50, height: 30 },
         style: { align: 'center' }
 	}).loadData(sheets);
-	if (this.opts.themeBtn) {
-		window._excel_viewer_theme_btn.addEventListener("click", () => {
+	if (this.opts.themeBtn && window._excel_viewer_theme_btn) {
+		let el;
+		if (window._excel_viewer_theme_btn.el) el = window._excel_viewer_theme_btn.el;
+		else el = window._excel_viewer_theme_btn;
+		el.addEventListener("click", () => {
 			let data = this.spreadsheet_s.getData();
 			this.spreadsheet_s = x_spreadsheet(this.el, {
 				row: {
